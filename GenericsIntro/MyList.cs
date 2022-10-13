@@ -6,24 +6,33 @@ using System.Threading.Tasks;
 
 namespace GenericsIntro
 {
-    internal class MyList<T>
+    internal class MyList<T> //Generic class
     {
-        T[] items;
+        T[] _array;
+        T[] tempArray;
+
         public MyList()
         {
-            items = new T[0];
+            _array = new T[0];
         }
+        //public MyList() => items = new T[0]; yukarıdaki bu şekildede yazılabilir.
+
         public void Add(T item)
         {
-            T[] tempArray = items;
-            items = new T[items.Length + 1];
+            tempArray = _array;
+            _array = new T[_array.Length + 1];
             for (int i = 0; i < tempArray.Length; i++)
             {
-                items[i] = tempArray[i];
+                _array[i] = tempArray[i];
             }
 
-            items[items.Length-1] = item;
-
+            _array[_array.Length - 1] = item;
         }
+
+        public int Count
+        {
+            get { return _array.Length; }
+        }
+
     }
 }

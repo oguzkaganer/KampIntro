@@ -6,6 +6,9 @@
         {
             MyList<string> isimler = new MyList<string>();
             isimler.Add("Oğuz");
+            isimler.Add("Harun");
+
+            Console.WriteLine(isimler.Count);
 
 
             Console.ReadLine();
